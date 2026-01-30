@@ -1,0 +1,14 @@
+<h2>Counter App</h2>
+
+<p>Count: {{ count }}</p>
+
+<button (click)="decrement()">-</button>
+<button (click)="increment()">+</button>
+
+<hr>
+
+<h2>User Input</h2>
+
+<input [(ngModel)]="username" placeholder="Enter your name">
+
+<p>You typed: {{ username }}</p>
