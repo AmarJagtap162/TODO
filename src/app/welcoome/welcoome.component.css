@@ -1,0 +1,12 @@
+/* General styling for the error message container */
+.error-message {
+    color: #D9534F; /* Red text for visibility */
+    background-color: #F2DEDE; /* Light red background */
+    border: 1px solid #D9534F;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.2em;    
+  }

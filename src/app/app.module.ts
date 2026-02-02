@@ -12,6 +12,8 @@ import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
 import { CounterComponent } from './counter/counter.component';
+import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
 
 @NgModule({
   declarations: [
@@ -23,12 +25,14 @@ import { CounterComponent } from './counter/counter.component';
     MenuComponent,
     FooterComponent,
     LogoutComponent,
-    CounterComponent
+    CounterComponent,
+    TodoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

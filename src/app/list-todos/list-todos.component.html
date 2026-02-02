@@ -1,4 +1,7 @@
 <h1>My Todo's</h1>
+
+<div class="alert alert-success" *ngIf="message">{{message}}</div>
+
 <div class="container">
     <table class="table">
         <caption>My Todo's</caption>
@@ -7,17 +10,19 @@
                 <th>id</th>
                 <th>description</th>
                 <th>Target Date</th>
-                <th>IsCompleted</th>
+                <th>Is Completed</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             <!-- for(Todo todo : todos) -->
             <tr *ngFor="let todo of todos">
-                <th>{{todo.id}}</th>
-                <th>{{todo.description}}</th>
-                <th>{{todo.targetDate | date | uppercase}}</th>
-                <th>{{todo.done}}</th>
-
+                <td>{{todo.id}}</td>
+                <td>{{todo.description}}</td>
+                <td>{{todo.targetDate | date | uppercase}}</td>
+                <td>{{todo.isDone}}</td>
+                <td><button class="btn btn-danger" (click) = "deleteTodo(todo.id)" >Delete</button></td>
+                <td><button class="btn btn-success" (click) = "updateTodo(todo.id)" >Update</button></td>
             </tr>
         </tbody>
 
