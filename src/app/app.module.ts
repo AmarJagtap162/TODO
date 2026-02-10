@@ -11,9 +11,17 @@ import { ListTodosComponent } from './list-todos/list-todos.component';
 import { MenuComponent } from './menu/menu.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoutComponent } from './logout/logout.component';
-import { CounterComponent } from './counter/counter.component';
-import { HttpClientModule } from '@angular/common/http';
+import { CounterComponent } from './task/counter/counter.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TodoComponent } from './todo/todo.component';
+import { ParentComponent } from './task/ParentToChild/parent/parent.component';
+import { ChildComponent } from './task/ParentToChild/child/child.component';
+import { Parent1Component } from './task/childToParent/parent1/parent1.component';
+import { Child1Component } from './task/childToParent/child1/child1.component';
+import { ParenttComponent } from './task/OutInBiDirect/parentt/parentt.component';
+import { Sibiling1Component } from './task/OutInBiDirect/sibiling1/sibiling1.component';
+import { Sibiling2Component } from './task/OutInBiDirect/sibiling2/sibiling2.component';
+import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 
 @NgModule({
   declarations: [
@@ -26,7 +34,14 @@ import { TodoComponent } from './todo/todo.component';
     FooterComponent,
     LogoutComponent,
     CounterComponent,
-    TodoComponent
+    TodoComponent,
+    ParentComponent,
+    ChildComponent,
+    Parent1Component,
+    Child1Component,
+    ParenttComponent,
+    Sibiling1Component,
+    Sibiling2Component
   ],
   imports: [
     BrowserModule,
@@ -34,7 +49,11 @@ import { TodoComponent } from './todo/todo.component';
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+      { provide: HTTP_INTERCEPTORS, 
+        useClass: HttpInterceptorBasicAuthService, 
+        multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

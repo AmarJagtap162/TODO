@@ -20,7 +20,18 @@ export class WelcomeDataService {
   }
 
   executeHelloWorldServiceWithPathVariable(name: any) {
-    return this.http.get<HelloWorldBean>(`http://localhost:8080/api/hello-world/${name}`);
+    return this.http.get<HelloWorldBean>(`http://localhost:8080/api/hello-world/${name}`, {
+      headers: {
+        Authorization: this.createBasicAuthenticationHttpHeader()
+      }
+    } );
+  }
+
+  createBasicAuthenticationHttpHeader() {
+    let username = 'test'  
+    let password = '123'
+    let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
+    return basicAuthHeaderString;
   }
 
 }

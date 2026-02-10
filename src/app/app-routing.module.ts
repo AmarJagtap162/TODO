@@ -6,8 +6,15 @@ import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
 import { LogoutComponent } from './logout/logout.component';
 import { RouteGuardService } from './service/route-guard.service';
-import { CounterComponent } from './counter/counter.component';
+import { CounterComponent } from './task/counter/counter.component';
 import { TodoComponent } from './todo/todo.component';
+import { ParentComponent } from './task/ParentToChild/parent/parent.component';
+import { ChildComponent } from './task/ParentToChild/child/child.component';
+import { Parent1Component } from './task/childToParent/parent1/parent1.component';
+import { Child1Component } from './task/childToParent/child1/child1.component';
+import { Sibiling2Component } from './task/OutInBiDirect/sibiling2/sibiling2.component';
+import { Sibiling1Component } from './task/OutInBiDirect/sibiling1/sibiling1.component';
+import { ParenttComponent } from './task/OutInBiDirect/parentt/parentt.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -15,8 +22,15 @@ const routes: Routes = [
   { path: 'welcome/:name', component: WelcoomeComponent, canActivate: [RouteGuardService] },
   { path: 'todos', component: ListTodosComponent, canActivate: [RouteGuardService] },
   { path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService] },
-    { path: 'todos/:id', component: TodoComponent, canActivate: [RouteGuardService] },
+  { path: 'todos/:id', component: TodoComponent, canActivate: [RouteGuardService] },
   { path: 'counter', component: CounterComponent },
+  { path: 'parent', component: ParentComponent },
+  { path: 'child', component: ChildComponent },
+  { path: 'parent1', component: Parent1Component },
+  { path: 'child1', component: Child1Component },
+  {path: 'out-in-bi-direct', component: ParenttComponent},
+  {path: 'out-in-bi-direct/sibling1', component: Sibiling1Component},
+  {path: 'out-in-bi-direct/sibling2', component: Sibiling2Component},
   { path: '**', component: ErrorComponent }
 ];
 

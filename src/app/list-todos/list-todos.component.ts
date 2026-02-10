@@ -50,16 +50,14 @@ retrieveAllTodos() {
     );  
   }
 
-  updateTodo(id:number) {
-    console.log(`update todo ${id}`);
-    this.router.navigate(['todos', id]);
-    //this.todoDataService.updateTodo('test', id).subscribe(
-    //  response => {
-    //    console.log(response);
-    //    this.message = `Update of todo ${id} Successful!`;
-    //    this.retrieveAllTodos();
-    //  }
-    //);  
+  updateTodo(id: number) {
+    console.log(`update ${id}`)
+    this.router.navigate(['todos',id])
+  }
+
+  addTodo() {
+    console.log('add todo '+this.todos);
+    this.router.navigate(['todos',-1])
   }
 
   // todos = [

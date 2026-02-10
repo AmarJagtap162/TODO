@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { HardcodedAuthenticationService } from '../service/hardcoded-authentication.service';
+import { BasicAuthenticationService } from '../service/basic-authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -16,7 +17,7 @@ export class LoginComponent {
   //router
   //Angular.giveMeRouter
   //Dependency Injection
-  constructor(private router: Router, private hardCodeAuthenticationService: HardcodedAuthenticationService) {
+  constructor(private router: Router, private basicAuthService: BasicAuthenticationService, private hardCodeAuthenticationService: HardcodedAuthenticationService) {
 
   }
 
@@ -30,5 +31,35 @@ export class LoginComponent {
     } else {
       this.invalidLogin = true
     }
+  }
+
+  handleBasicAuthLogin() {
+    console.log(this.username + " password -> " + this.password + " = " + this.invalidLogin)
+    this.basicAuthService.executeAuthenticationService(this.username, this.password).subscribe(
+      data => {
+        console.log(data)
+        // redirect to welcome page
+        this.router.navigate(['welcome', this.username])
+        this.invalidLogin = false
+      }, error => {
+        console.log(error)
+        this.invalidLogin = true
+      }
+    )
+  }
+
+    handleJWTAuthLogin() {
+    console.log(this.username + " password -> " + this.password + " = " + this.invalidLogin)
+    this.basicAuthService.executeJWTAuthenticationService(this.username, this.password).subscribe(
+      data => {
+        console.log(data)
+        // redirect to welcome page
+        this.router.navigate(['welcome', this.username])
+        this.invalidLogin = false
+      }, error => {
+        console.log(error)
+        this.invalidLogin = true
+      }
+    )
   }
 }
