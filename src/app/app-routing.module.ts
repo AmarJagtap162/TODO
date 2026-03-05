@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './logout/login/login.component';
 import { WelcoomeComponent } from './welcoome/welcoome.component';
 import { ErrorComponent } from './error/error.component';
 import { ListTodosComponent } from './list-todos/list-todos.component';
@@ -12,9 +12,6 @@ import { ParentComponent } from './task/ParentToChild/parent/parent.component';
 import { ChildComponent } from './task/ParentToChild/child/child.component';
 import { Parent1Component } from './task/childToParent/parent1/parent1.component';
 import { Child1Component } from './task/childToParent/child1/child1.component';
-import { Sibiling2Component } from './task/OutInBiDirect/sibiling2/sibiling2.component';
-import { Sibiling1Component } from './task/OutInBiDirect/sibiling1/sibiling1.component';
-import { ParenttComponent } from './task/OutInBiDirect/parentt/parentt.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -28,9 +25,6 @@ const routes: Routes = [
   { path: 'child', component: ChildComponent },
   { path: 'parent1', component: Parent1Component },
   { path: 'child1', component: Child1Component },
-  {path: 'out-in-bi-direct', component: ParenttComponent},
-  {path: 'out-in-bi-direct/sibling1', component: Sibiling1Component},
-  {path: 'out-in-bi-direct/sibling2', component: Sibiling2Component},
   { path: '**', component: ErrorComponent }
 ];
 

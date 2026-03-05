@@ -15,6 +15,9 @@
             [ngModel]="todo.targetDate | date:'yyyy-MM-dd' "
                 (ngModelChange)="todo.targetDate = $event" name="targetDate" required />
         </div>
+        <div class="form-group">
+            <label>Is Completed</label> <input type="checkbox" class="form-control" [(ngModel)]="todo.isDone" name="isDone" />
+        </div>
         <button type="submit" class="btn btn-success">Save</button>
     </form>
 </div>

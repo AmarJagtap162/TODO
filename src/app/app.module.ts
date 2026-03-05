@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
+import { LoginComponent } from './logout/login/login.component';
 import { WelcoomeComponent } from './welcoome/welcoome.component';
 import { FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
@@ -18,9 +18,6 @@ import { ParentComponent } from './task/ParentToChild/parent/parent.component';
 import { ChildComponent } from './task/ParentToChild/child/child.component';
 import { Parent1Component } from './task/childToParent/parent1/parent1.component';
 import { Child1Component } from './task/childToParent/child1/child1.component';
-import { ParenttComponent } from './task/OutInBiDirect/parentt/parentt.component';
-import { Sibiling1Component } from './task/OutInBiDirect/sibiling1/sibiling1.component';
-import { Sibiling2Component } from './task/OutInBiDirect/sibiling2/sibiling2.component';
 import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor-basic-auth.service';
 
 @NgModule({
@@ -38,10 +35,7 @@ import { HttpInterceptorBasicAuthService } from './service/http/http-interceptor
     ParentComponent,
     ChildComponent,
     Parent1Component,
-    Child1Component,
-    ParenttComponent,
-    Sibiling1Component,
-    Sibiling2Component
+    Child1Component
   ],
   imports: [
     BrowserModule,

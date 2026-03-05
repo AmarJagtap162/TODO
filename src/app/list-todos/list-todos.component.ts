@@ -22,12 +22,24 @@ export class Todo {
 export class ListTodosComponent implements OnInit {
   todos: Todo[] = [];
   message: string = '';
+  searchText: string = '';
 
   constructor(private todoDataService: TodoDataService, private router:Router
   ) { }
 
   ngOnInit(): void {
     this.retrieveAllTodos();
+  }
+
+  searchByDesc () {
+    console.log('search by description '+this.searchText);
+    const search = this.searchText.trim().toLowerCase();
+    this.todoDataService.retrieveAllTodos('test').subscribe(
+      response => {
+        console.log(response);
+        this.todos = response.filter(todo => todo.description.toLowerCase().includes(search));
+      }
+    );  
   }
 
 retrieveAllTodos() {

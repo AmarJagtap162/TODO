@@ -1,4 +1,8 @@
 <h1>My Todo's</h1>
+<p>
+    <input placeholder="search by description" type="text" (input) = "searchByDesc()" class="form-control"
+    [(ngModel)]="searchText" name="searchText" />
+</p>
 
 <div class="alert alert-success" *ngIf="message">{{message}}</div>
 
@@ -21,13 +25,13 @@
                 <td>{{todo.description}}</td>
                 <td>{{todo.targetDate | date | uppercase}}</td>
                 <td>{{todo.isDone}}</td>
-                <td><button class="btn btn-danger" (click) = "deleteTodo(todo.id)" >Delete</button></td>
-                <td><button class="btn btn-success" (click) = "updateTodo(todo.id)" >Update</button></td>
+                <td><button class="btn btn-danger" (click)="deleteTodo(todo.id)">Delete</button></td>
+                <td><button class="btn btn-success" (click)="updateTodo(todo.id)">Update</button></td>
             </tr>
         </tbody>
 
     </table>
     <div>
-        <button class="btn btn-success" (click)="addTodo()">Add Todo</button>   
+        <button class="btn btn-success" (click)="addTodo()">Add Todo</button>
     </div>
 </div>
